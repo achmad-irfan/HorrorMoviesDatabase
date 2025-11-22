@@ -65,13 +65,11 @@ def get_similar_movies(movie_id):
 
     params = {
         "api_key": "d8d666fb30f19051784ac3645fdf05da",
-        "language": "en-US"
+        "language": "en-US",
+        "with_genres": "27",
     }
 
     response = requests.get(url, params=params)
     movies = response.json().get('results', [])
-
-    for m in movies:
-        m['slug'] = slugify(m.get('title', ''))
 
     return movies

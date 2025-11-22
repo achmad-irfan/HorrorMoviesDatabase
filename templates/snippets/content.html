@@ -3,7 +3,7 @@
     <h4>Upcoming Horror Movies</h4>
     <div class="movie-list">
       {% for m in upcoming_movies %}
-      <a href="/movie/{{m.slug}}/" class="movie-link">
+      <a href="/movie/{{m.id}}/" class="movie-link">
         <div class="movie-item">
           <img src="https://image.tmdb.org/t/p/w500{{ m.poster_path }}" alt="{{ m.title }}" width="150" />
           <p class="title">{{ m.title }}</p>
@@ -17,10 +17,10 @@
     <h4>Best 2025 Horror Movie</h4>
     <div class="movie-list">
       {% for m in top_movies %}
-      <a href="/movie/{{m.slug}}/" class="movie-link">
+      <a href="/movie/{{m.id}}/" class="movie-link">
         <div class="poster-wrapper">
           <img src="https://image.tmdb.org/t/p/w500{{ m.poster_path }}" alt="{{ m.title }}" width="150" />
-          <span class="rating">{{ m.vote_average|floatformat:1  }}</span>
+          <span class="rating">{{ m.vote_average|floatformat:1 }}</span>
         </div>
         <p class="title">{{ m.title }}</p>
       </a>

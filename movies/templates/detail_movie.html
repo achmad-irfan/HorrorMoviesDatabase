@@ -62,11 +62,11 @@
   <div class="gallery">
   <h3>Scene Gallery</h3>
   <div class="gallery-list">
-    {% for img in movie.gallery_backdrops %}
-      <div class="gallery-item">
-        <img src="{{ img }}" alt="Scene Image">
-      </div>
-    {% endfor %}
+    {% for s in movie.scenes %}
+    <div class="gallery-item">
+        <img class="scene-img" src="https://image.tmdb.org/t/p/w780{{ s.file_path }}">
+     </div>
+        {% endfor %}
   </div>
 </div>
 
@@ -77,7 +77,7 @@
 
   <div class="similar-list">
     {% for sm in similar_movies %}
-   <a href="/movie/{{sm.slug}}/" class="similar-card">
+   <a href="/movie/{{sm.id}}/" class="similar-card">
     <div class="poster-wrapper">
         {% if sm.poster_full %}
         <img src="{{ sm.poster_full }}" alt="{{ sm.title }}">
