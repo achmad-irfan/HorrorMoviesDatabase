@@ -1,16 +1,59 @@
-{% extends "base.html" %} {% block content %}
-<div class="detail_movie">
-  <div class="poster"><img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" width="150" /></div>
-  <div class="information">
-    <h4>{{movie.title}} ({{ movie.release_date|slice:":4"}})</h4>
-    <h5>Release Date: {{ movie.release_date}}</h5>
-    <h5>Status: {{ movie.status}}</h5>
-    <h5>Languange: {{movie.original_language}}</h5>
-    <h5>Duration:{{movie.runtime}}</h5>
-    <h5>Director:{{movie.director}}</h5>
-    <h5>Vote Average:{{movie.popularity}}</h5>
-    <h5>Cast:{{movie.cast}}</h5>
-    <h5>Sinopsis: {{movie.overview}}</h5>
+{% extends "base.html" %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+{% endblock %} {% block content %}
+
+<div class="movie-detail-container">
+  <!-- Poster -->
+  <div class="movie-poster">
+    <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" />
+  </div>
+
+  <!-- Information -->
+  <div class="movie-info">
+    <h2 class="movie-title">
+      {{ movie.title }}
+      <span>({{ movie.release_date|slice:":4" }})</span>
+    </h2>
+
+    <div class="movie-meta">
+      <p><strong>Release Date :</strong> {{ movie.release_date }}</p>
+      <p><strong>Status : </strong> {{ movie.status }}</p>
+      <p><strong>Language : </strong> {{ movie.original_language|upper }}</p>
+      <p><strong>Duration : </strong> {{ movie.runtime }} min</p>
+      <p><strong>Director : </strong> {{ movie.director }}</p>
+      <p><strong>Director : </strong> {{ movie.producer }}</p>
+      <p><strong>Rating : </strong> {{ movie.vote_average|floatformat:1 }}</p>
+    </div>
+
+    <!-- <div class="movie-overview">
+      <h3>Synopsis</h3>
+      <p>{{ movie.overview }}</p>
+    </div> -->
+  </div>
+  {% if movie.trailer_id %}
+  <div class="trailer">
+    <h3>Trailer</h3>
+    <iframe width="600" height="320" src="https://www.youtube.com/embed/{{ movie.trailer_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
+  </div>
+  {% endif %}
+  <div class="overview">
+    <h3>Synopsis:</h3>
+    <p>{{movie.overview}}</p>
+  </div>
+  <div class="cast-section">
+    <h3>Top Cast</h3>
+    <div class="cast-list">
+      {% for c in movie.cast_full %}
+      <div class="cast-card">
+        {% if c.photo %}
+        <img src="{{ c.photo }}" alt="{{ c.name }}" />
+        {% else %}
+        <div class="no-photo">No Image</div>
+        {% endif %}
+        <p class="cast-name">{{ c.name }}</p>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
 

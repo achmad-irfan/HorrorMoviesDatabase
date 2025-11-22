@@ -94,134 +94,118 @@ body {
 /* End of Banner */
 
 /* Content */
+/* ===== GENERAL LAYOUT ===== */
 .content {
-  background-color: rgb(1, 4, 16);
-  border: 1px solid white;
-  border-radius: 10px;
-  color: white;
-  padding: 10px;
-  display: grid;
-  gap: 20px;
-}
-
-.content h4 {
-  text-align: center;
-}
-
-.movie-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px;
-  padding: 20px;
-}
-
-.movie-link {
-  position: relative;
-  display: inline-block;
-}
-
-.poster-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.rating {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  background: #e50914;
-  color: white;
-  padding: 4px 10px;
-  font-size: 12px;
-  font-weight: bold;
-  border-radius: 6px;
-  letter-spacing: 0.5px;
-}
-
-.movie-item {
-  background-color: #02042f;
-  border: 1px solid white;
-  border-radius: 10px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.movie-item:hover,
-.movie-link:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(229, 9, 20, 0.6), 0 0 30px rgba(229, 9, 20, 0.4);
-}
-
-.movie-item img {
-  width: 80%;
-  height: 225px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.movie-item p.title {
-  margin-top: 8px;
-  font-size: 20px;
-  color: white;
-  text-align: center;
-
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-height: 38px;
-}
-
-.top-movie {
-  background-color: rgb(33, 33, 35);
-  border-radius: 10px;
-  padding: 20px;
-}
-
-.best-movie {
-  border: 1px solid white;
-  padding: 10px 50px;
-  border-radius: 20px;
-}
-
-.rating-badge {
-  border: 1px solid white;
-  padding: 5px;
-  display: inline;
-}
-
-/* Detail Movie */
-.detail_movie {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
   background-color: rgb(1, 4, 16);
   border: 1px solid white;
   border-radius: 10px;
   padding: 30px;
-  color: white;
   display: grid;
-  grid-template-columns: 2fr 5fr;
+  gap: 50px;
 }
 
-.detail_movie img {
-  width: 275px;
-  height: 400px;
-}
-.detail_movie h4 {
-  font-family: "Swamp Witch", cursive;
-  font-size: 40px;
-  color: rgb(255, 0, 0);
-  text-shadow: 2px 2px 0 black, -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black; /* efek bayangan tebal */
-}
-
-.detail_movie h5 {
-  font-family: fantasy, cursive;
-  font-size: 25px;
+/* ===== SECTION TITLES ===== */
+.upcoming h4,
+.top-movie h4 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #00eaff;
+  text-shadow: 0 0 8px #00eaff;
 }
 
-/* End of Detail Movie */
+/* ===== MOVIE LIST WRAPPER ===== */
+.movie-list {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* ===== MOVIE LINK ===== */
+.movie-link {
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.movie-link:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+/* ===========================================================
+   FUTURISTIC CARD STYLE (Dipakai oleh TOP & UPCOMING)
+   =========================================================== */
+
+.movie-item,
+.poster-wrapper {
+  position: relative;
+  width: 150px;
+  padding: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 12px #0ff5, 0 0 25px #0ff3 inset;
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+.movie-item:hover,
+.poster-wrapper:hover {
+  box-shadow: 0 0 20px #00eaff, 0 0 40px #00eaff inset;
+}
+
+/* POSTER IMAGE */
+.movie-item img,
+.poster-wrapper img {
+  width: 150px;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+}
+
+/* ===== UPCOMING: Release Date ===== */
+.movie-item p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ===== NEON RATING BADGE (Top Movies) ===== */
+.rating {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 255, 255, 0.2);
+  color: #00eaff;
+  padding: 4px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  text-shadow: 0 0 6px #00eaff, 0 0 12px #00eaff;
+  border: 1px solid #00eaff55;
+  box-shadow: 0 0 10px #00eaff88;
+}
+
+/* ===== MOVIE TITLE ===== */
+.title {
+  margin-top: 8px;
+  font-size: 14px;
+  max-width: 150px;
+  text-align: center;
+  line-height: 1.3;
+  color: #eaffff;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.movie-link:hover .title {
+  color: #00eaff;
+  text-shadow: 0 0 6px #00eaff;
+}
 
 /* End of Content */
 
