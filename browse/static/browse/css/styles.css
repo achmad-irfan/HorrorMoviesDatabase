@@ -1,0 +1,27 @@
+.browse {
+  padding: 30px;
+}
+
+.browse h2,
+.browse p {
+  text-align: center;
+  color: #00f5e1;
+  font-family: "Ethnocentric";
+}
+
+.browse h2 {
+  font-size: 50px;
+  text-shadow: 0 0 2px #00ffe0, 0 0 12px #00fff2;
+}
+
+.browse p {
+  font-size: 20px;
+  color: #00ffd9;
+}
+
+.filter {
+  border: 1px solid #00f5e1;
+  padding: 30px 20px;
+  color: white;
+  border-radius: 15px;
+}

@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% load static %}
+<!-- css -->
+{% block css_app %}
+<link rel="stylesheet" href="{% static 'browse/css/styles.css' %}" />
+{% endblock %}
+<!-- End of CSS  -->
+<!-- Content Browse -->
+{% block content %}
+<div class="browse">
+  <h2>Browse Horror Movies</h2>
+  <p>Easily explore top-rated films, latest releases, trending titles, and hidden gems. With advanced filters, detailed movie insights, and high-quality visuals, finding the perfect movie has never been easier.</p>
+  <div class="filter">
+    <h3>Advanced Filter</h3>
+  </div>
+</div>
+{% endblock %}
+<!-- End of Content Browse -->

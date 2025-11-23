@@ -21,7 +21,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('movies.urls'))
+    path('',include('movies.urls')),
+    path('browse/', include('browse.urls'))
 ]
 
 if settings.DEBUG:
