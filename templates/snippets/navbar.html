@@ -18,10 +18,10 @@
       </div>
 
       <!-- Search bar kanan -->
-      <form class="d-flex search-form" method="GET" action="{% url 'app_movies:movies' %}">
-        <input class="form-control search-input" type="search" placeholder="Search movies..." aria-label="Search" name="q" value="{{ request.GET.q }}" />
-        <button class="btn search-btn" type="submit">Search</button>
-      </form>
+      <div class="nav-search" style="position: relative">
+        <input id="movieSearchInput" type="search" placeholder="Search movies..." aria-label="Search movies" autocomplete="off" />
+        <div id="searchResults" role="listbox" aria-labelledby="movieSearchInput" class="search-dropdown" hidden></div>
+      </div>
     </div>
   </div>
 </nav>

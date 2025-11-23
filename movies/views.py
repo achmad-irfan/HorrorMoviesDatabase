@@ -2,6 +2,9 @@ from django.shortcuts import render
 from . import api
 from datetime import datetime
 import requests
+from django.http import JsonResponse
+from django.db.models import Q
+
 
 # Create your views here.
 def index(request):
@@ -100,3 +103,38 @@ def detail_movie(request, movie_id):
         "movie": movie,
         "similar_movies": similar
     })
+
+
+
+
+
+def search_api(request):
+    q = request.GET.get("q", "").strip()
+
+    if not q:
+        return JsonResponse({"results": []})
+
+    url = "https://api.themoviedb.org/3/search/movie"
+    params = {
+        "api_key": "d8d666fb30f19051784ac3645fdf05da",
+        "query": q,
+        "page": 1,
+        "include_adult": False,
+    }
+
+    response = requests.get(url, params=params).json()
+
+    results = []
+    for movie in response.get("results", [])[:10]:
+        results.append({
+            "id": movie["id"],
+            "title": movie["title"],
+            "year": movie.get("release_date", "")[:4] if movie.get("release_date") else "",
+            "poster": (
+                f"https://image.tmdb.org/t/p/w92{movie['poster_path']}"
+                if movie.get("poster_path") else None
+            )
+        })
+
+    return JsonResponse({"results": results})
+

@@ -2,6 +2,8 @@ import requests
 from datetime import datetime, timedelta
 from django.shortcuts import render
 import re
+from django.http import JsonResponse
+from django.db.models import Q
 
 def slugify(text):
     text=text.lower()
@@ -73,3 +75,4 @@ def get_similar_movies(movie_id):
     movies = response.json().get('results', [])
 
     return movies
+
