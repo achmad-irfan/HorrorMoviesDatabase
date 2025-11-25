@@ -31,7 +31,7 @@ def index(request):
             if m.get("release_date", "").startswith(str(selected_year))
         ]
     
-    upcoming_movies = upcoming_movies[:6]
+    upcoming_movies = upcoming_movies[:5]
     top_movies = top_movies[:6]
 
     context = {
@@ -67,7 +67,7 @@ def detail_movie(request, movie_id):
     movie["producer"] = next((c["name"] for c in crew if c["job"] == "Producer"), "Unknown")
 
     # Cast (ambil 5)
-    cast_list = response.get("credits", {}).get("cast", [])[:5]
+    cast_list = response.get("credits", {}).get("cast", [])[:6]
     movie["cast_full"] = [
         {
             "name": c["name"],

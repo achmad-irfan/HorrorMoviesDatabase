@@ -86,8 +86,9 @@
 
 .cast-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 10px;
+  justify-content: space-between;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 5px;
 }
 
 .cast-card {
@@ -167,12 +168,6 @@
   grid-area: similar;
 }
 
-.similar-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 25px;
-}
-
 .similar-card {
   .similar-card {
     text-decoration: none;
@@ -202,18 +197,6 @@
 .poster-wrapper {
   position: relative;
   display: block; /* bukan inline-block */
-}
-
-.poster-wrapper .rating {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  background: rgba(255, 50, 50, 0.9);
-  padding: 4px 8px;
-  font-size: 12px;
-  border-radius: 6px;
-  font-weight: bold;
-  z-index: 10;
 }
 
 /* End of Similar Movies */

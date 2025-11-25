@@ -75,7 +75,7 @@
 <div class="similar-section">
   <h3>Similar Movies</h3>
 
-  <div class="similar-list">
+  <div class="movie-list">
     {% for sm in similar_movies %}
    <a href="/movie/{{sm.id}}/" class="similar-card">
     <div class="poster-wrapper">
@@ -84,8 +84,9 @@
         {% else %}
         <div class="no-poster">No Image</div>
         {% endif %}
+        <h6>{{ sm.title }}</h6>
+        <span class="rating">⭐ {{ sm.vote_average|floatformat:1 }}</span>
     </div>
-    <p class="similar-title">{{ sm.title }}</p>
   </a>
     {% endfor %}
   </div>

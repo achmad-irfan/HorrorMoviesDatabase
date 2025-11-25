@@ -77,12 +77,11 @@
 }
 
 #submit {
-  background-color: blue;
+  background-color: midnightblue;
   padding: 10px;
   color: white;
   border-radius: 5px;
   margin: 20px auto;
-  font-size: larger;
   text-align: center;
 }
 /* End of Filter */
@@ -93,9 +92,8 @@
   text-align: center;
 }
 
-.page-movies {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+.movie-list {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 40px;
   margin-top: 30px;
 }
@@ -122,6 +120,7 @@
 .page-movie img {
   border-radius: 8px;
   transition: transform 0.3s;
+  margin-bottom: 10px;
 }
 
 .page-movie img:hover {

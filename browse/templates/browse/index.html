@@ -20,6 +20,7 @@
         <div class="form-group year">
           <label for="year">Release Year: </label>
           <select id="year" name="year">
+            <option value="">-- Select Release Year --</option>
             <option value="2020-2025">2020–2025</option>
             <option value="2015-2019">2015–2019</option>
             <option value="2010-2014">2010–2014</option>
@@ -55,7 +56,6 @@
             <option value="">-- Sorted by --</option>
             <option value="release">Release Date</option>
             <option value="vote">Vote Average</option>
-            <option value="popular">Popularity</option>
             <option value="title">Title</option>
           </select>
         </div>
@@ -65,7 +65,7 @@
   </div>
   <div class="gallery-movie">
     <h3>&#x1F3AC; Browse Movie</h3>
-    <div class="page-movie">
+    <div class="movie-list">
       {% for m in movies %}
       <a href="/movie/{{m.tmdb_id}}/">
         <div class="poster-wrapper">

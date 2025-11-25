@@ -95,6 +95,7 @@ class PageMovies(ListView):
         lang = self.request.GET.get("lang")
         rating = self.request.GET.get("rating")
         year = self.request.GET.get("year")
+        sorted_by= self.request.GET.get("sorted")
         
         if name:
             qs = qs.filter(title__icontains=name)
@@ -117,6 +118,17 @@ class PageMovies(ListView):
                     qs = qs.filter(release_year=int(year))
                 except ValueError:
                     pass
+                
+        if sorted_by:
+            if sorted_by == "release":
+                qs = qs.order_by('-release_year')  
+            elif sorted_by == "vote":
+                qs = qs.order_by('-vote_average')  
+            elif sorted_by == "popular":
+                qs = qs.order_by('-vote_count')  
+            elif sorted_by == "title":
+                qs = qs.order_by('title')  
+            
         return qs
 
     # Kirim languages ke template
