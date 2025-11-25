@@ -13,13 +13,13 @@
       <!-- Menu kiri -->
       <div class="navbar-nav ms-auto me-5">
         <a class="nav-link active" href="{% url 'app_movies:movies' %}">Home</a>
-        <a class="nav-link" href="#">Browse</a>
+        <a class="nav-link" href="{% url 'app_browse:browse' %}">Browse</a>
         <a class="nav-link" href="#">Statistic</a>
       </div>
 
       <!-- Search bar kanan -->
       <div class="nav-search" style="position: relative">
-        <input id="movieSearchInput" type="search" placeholder="Search movies..." aria-label="Search movies" autocomplete="off" />
+        <input id="movieSearchInput" type="search" placeholder="🔍Search movies..." aria-label="Search movies" autocomplete="off" />
         <div id="searchResults" role="listbox" aria-labelledby="movieSearchInput" class="search-dropdown" hidden></div>
       </div>
     </div>

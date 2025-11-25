@@ -162,9 +162,10 @@ body {
 
 /* ===== MOVIE LIST WRAPPER ===== */
 .movie-list {
-  display: flex;
-  gap: 50px;
-  flex-wrap: wrap;
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
 }
 
 /* ===== MOVIE LINK ===== */
@@ -183,17 +184,24 @@ body {
    FUTURISTIC CARD STYLE (Dipakai oleh TOP & UPCOMING)
    =========================================================== */
 
-.movie-item,
 .poster-wrapper {
   position: relative;
-  width: 150px;
-  padding: 0;
+  padding: 10px;
   border-radius: 14px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(4px);
   box-shadow: 0 0 12px #0ff5, 0 0 25px #0ff3 inset;
   transition: box-shadow 0.4s ease, transform 0.3s ease;
+  gap: 10px;
+}
+
+.poster-wrapper img {
+  width: 85%;
+  height: 250px;
+  border-radius: 14px;
+  display: block;
+  margin: 20px auto;
 }
 
 .movie-item:hover,
@@ -202,26 +210,14 @@ body {
 }
 
 /* POSTER IMAGE */
-.movie-item img,
-.poster-wrapper img {
-  width: 150px;
-  height: auto;
-  border-radius: 14px;
-  display: block;
-}
 
 /* ===== UPCOMING: Release Date ===== */
-.movie-item p {
-  margin: 6px 0 0;
-  font-size: 13px;
-  text-align: center;
-}
 
 /* ===== NEON RATING BADGE (Top Movies) ===== */
 .rating {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
+  top: 12px;
+  right: 30%;
   background: rgba(0, 255, 255, 0.2);
   color: #00eaff;
   padding: 4px 10px;
@@ -235,14 +231,17 @@ body {
 }
 
 /* ===== MOVIE TITLE ===== */
-.title {
+.poster-wrapper h6 {
   margin-top: 8px;
-  font-size: 14px;
-  max-width: 150px;
+  font-size: 16px;
   text-align: center;
-  line-height: 1.3;
   color: #eaffff;
   transition: color 0.3s ease, text-shadow 0.3s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 38px;
 }
 
 .movie-link:hover .title {

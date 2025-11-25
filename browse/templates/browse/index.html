@@ -1,0 +1,97 @@
+{% extends "base.html" %} {% load static %}
+<!-- css -->
+{% block css_app %}
+<link rel="stylesheet" href="{% static 'browse/css/styles.css' %}" />
+{% endblock %}
+<!-- End of CSS  -->
+<!-- Content Browse -->
+{% block content %}
+<div class="browse">
+  <h2>Browse Horror Movies</h2>
+  <p>Easily explore top-rated films, latest releases, trending titles, and hidden gems. With advanced filters, detailed movie insights, and high-quality visuals, finding the perfect movie has never been easier.</p>
+  <div class="filter">
+    <h3>🔍 Advanced Filter</h3>
+    <form method="get">
+      <div class="form-movie">
+        <div class="form-group name">
+          <label for="name">Name: </label>
+          <input id="name" type="text" name="name" placeholder="Insert Name" />
+        </div>
+        <div class="form-group year">
+          <label for="year">Release Year: </label>
+          <select id="year" name="year">
+            <option value="">-- Select Release Year --</option>
+            <option value="2020-2025">2020–2025</option>
+            <option value="2015-2019">2015–2019</option>
+            <option value="2010-2014">2010–2014</option>
+            <option value="2000-2009">2000–2009</option>
+            <option value="1990-1999">1990–1999</option>
+            <option value="1980-1989">1980–1989</option>
+            <option value="before-1980">Before 1980</option>
+          </select>
+        </div>
+        <div class="form-group lang">
+          <label for="lang">Language: </label>
+          <select id="lang" name="lang">
+            <option value="">-- Select Language --</option>
+            {% for lang in languages %}
+            <option value="{{lang.code}}">({{lang.code}}) {{lang.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group ratingmovie">
+          <label for="rating">Vote Average: </label>
+          <select id="rating" name="rating">
+            <option value="">-- Select Score --</option>
+            <option value="5">5+</option>
+            <option value="6">6+</option>
+            <option value="7">7+</option>
+            <option value="8">8+</option>
+            <option value="9">9+</option>
+          </select>
+        </div>
+        <div class="form-group sort">
+          <label for="sorted">Sort By: </label>
+          <select id="sorted" name="sorted">
+            <option value="">-- Sorted by --</option>
+            <option value="release">Release Date</option>
+            <option value="vote">Vote Average</option>
+            <option value="title">Title</option>
+          </select>
+        </div>
+      </div>
+      <input id="submit" type="submit" value="Browse" />
+    </form>
+  </div>
+  <div class="gallery-movie">
+    <h3>&#x1F3AC; Browse Movie</h3>
+    <div class="movie-list">
+      {% for m in movies %}
+      <a href="/movie/{{m.tmdb_id}}/">
+        <div class="poster-wrapper">
+          <img src="https://image.tmdb.org/t/p/w500{{ m.poster_path }}" alt="{{ m.title }}" width="150" />
+          <h6>{{m.title}}</h6>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="pagination">
+      {% if is_paginated %}
+      <div class="pagination">
+        {# PREV BUTTON #} {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">&laquo; Prev</a>
+        {% endif %} {# Window Pagination FIX #} {% for num in page_obj.paginator.page_range %} {# Hitung window range (10 nomor) #} {% if num >= page_obj.number|add:"-5" and num <= page_obj.number|add:"4" %} {% if num == page_obj.number %}
+        <span class="current">{{ num }}</span>
+        {% else %}
+        <a href="?page={{ num }}">{{ num }}</a>
+        {% endif %} {% endif %} {% endfor %} {# NEXT BUTTON #} {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next &raquo;</a>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

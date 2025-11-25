@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'movies',
+    'browse',
 ]
 
 MIDDLEWARE = [
@@ -74,12 +75,19 @@ WSGI_APPLICATION = 'MovieDB.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'horror',  
+            'USER': 'root',
+            'PASSWORD': 'dave', 
+            'HOST': 'localhost',           
+            'PORT': '3306',                
+        }
     }
-}
 
 
 # Password validation
@@ -120,6 +128,7 @@ MEDIA_URL = 'media/'
 MEDIA_DIRS = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = 'static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')]
 

@@ -1,0 +1,158 @@
+/* Banner Browse  */
+.browse {
+  padding: 30px;
+}
+
+.browse h2,
+.browse p {
+  text-align: center;
+  color: #00f5e1;
+  font-family: "Ethnocentric";
+}
+
+.browse h2 {
+  font-size: 50px;
+  text-shadow: 0 0 2px #00ffe0, 0 0 12px #00fff2;
+}
+
+.browse p {
+  font-size: 20px;
+  color: #00ffd9;
+}
+
+/* End of Banner Browse  */
+
+/* Filter */
+
+.filter {
+  border: 1px solid #00f5e1;
+  padding: 30px 60px;
+  color: white;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.form-movie {
+  display: grid;
+  grid-template-areas:
+    "name name name name"
+    "country lang ratingmovie sort";
+  gap: 10px;
+}
+
+.name {
+  grid-area: name;
+}
+
+.country {
+  grid-area: country;
+}
+
+.lang {
+  grid-area: lang;
+}
+
+.ratingmovie {
+  grid-area: ratingmovie;
+}
+.sort {
+  grid-area: sort;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+#rating,
+#sorted,
+#year,
+#lang {
+  width: 100%;
+  background-color: thistle;
+  border-radius: 4px;
+  padding: 7px;
+  margin-bottom: 10px;
+}
+
+#submit {
+  background-color: midnightblue;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  margin: 20px auto;
+  text-align: center;
+}
+/* End of Filter */
+
+/* Gallery Movie */
+.gallery-movie {
+  color: white;
+  text-align: center;
+}
+
+.movie-list {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.poster-wrapper {
+  box-shadow: 0 0 12px rgba(233, 3, 3, 0.333), 0 0 25px #0ff3 inset;
+}
+/* End of Gallery Movie */
+
+/* Paginator */
+.gallery-movie {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.page-movie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.page-movie img {
+  border-radius: 8px;
+  transition: transform 0.3s;
+  margin-bottom: 10px;
+}
+
+.page-movie img:hover {
+  transform: scale(1.05);
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pagination a,
+.pagination span {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+.pagination a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.pagination .current {
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+}
+/* End of Paginator */
