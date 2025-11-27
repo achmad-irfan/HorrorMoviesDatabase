@@ -196,8 +196,7 @@
 
 .poster-wrapper {
   position: relative;
-  display: block; /* bukan inline-block */
-}
+  display: block; }
 
 /* End of Similar Movies */
 

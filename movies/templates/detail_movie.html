@@ -46,6 +46,7 @@
     <h3>Top Cast</h3>
     <div class="cast-list">
       {% for c in movie.cast_full %}
+      <a href="/horrorgraphy/?name={{c.name}}&id={{c.id}}">
       <div class="cast-card">
         {% if c.photo %}
         <img src="{{ c.photo }}" alt="{{ c.name }}" />
@@ -54,6 +55,7 @@
         {% endif %}
         <p class="cast-name">{{ c.name }}</p>
       </div>
+      </a>
       {% endfor %}
     </div>
   </div>

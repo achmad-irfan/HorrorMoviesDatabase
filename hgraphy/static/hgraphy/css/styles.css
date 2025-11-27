@@ -1,0 +1,61 @@
+.biography {
+  border: 1px solid #00f5e1;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.biography p {
+  color: white;
+}
+.biography h2 {
+  color: white;
+  font-size: 30px;
+}
+.actor-card {
+  border: 1px solid white;
+  padding: 10px;
+  padding: 10px;
+  float: right;
+  text-align: center;
+  margin: 10px 20px;
+  border-radius: 10px;
+}
+
+.actor-card img {
+  margin-bottom: 20px;
+}
+
+.actor-card p {
+  text-align: start;
+  font-size: smaller;
+  line-height: 0.5;
+}
+
+.info p {
+  text-align: justify;
+  font-size: smaller;
+  line-height: 1.6;
+}
+
+.info h2 {
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.gallery-movie {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 40px;
+}
+.poster-wrapper img {
+  width: 150px;
+  height: 200px;
+}
+
+.poster-wrapper h6 {
+  font-size: 14px;
+}

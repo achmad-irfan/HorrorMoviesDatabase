@@ -15,6 +15,7 @@ body {
   background-color: black;
   margin: 0;
   padding: 0;
+  color: white;
 }
 
 .cont_area {
@@ -79,7 +80,6 @@ body {
   width: 100%;
   background: #0b0f19;
   border: 1px solid #ccc;
-  color: white;
   border-radius: 6px;
   overflow: hidden;
   display: block;
@@ -115,7 +115,6 @@ body {
 /* Hover item */
 .search-item:hover {
   background: #020015;
-  color: white;
   font-size: larger;
 }
 
@@ -139,7 +138,7 @@ body {
 /* Content */
 /* ===== GENERAL LAYOUT ===== */
 .content {
-  color: #fff;
+  /* color: #fff; */
   font-family: "Poppins", sans-serif;
   background-color: rgb(1, 4, 16);
   border: 1px solid white;
@@ -171,7 +170,6 @@ body {
 /* ===== MOVIE LINK ===== */
 .movie-link {
   text-decoration: none;
-  color: white;
   transition: transform 0.3s ease;
   position: relative;
 }
@@ -261,7 +259,6 @@ body {
 .footer p {
   font-size: smaller;
   text-align: center;
-  color: white;
   margin: 0;
   padding: 5px;
 }

@@ -5,5 +5,7 @@ from . import views
 
 app_name='app_hgraphy'
 urlpatterns = [
-    path("",views.index,name='hgraphy'),
+    path("",views.ActorView.as_view(),name='hgraphy'),
+    path("api/search-person/", views.person_suggestion, name="person_suggestion"),
+
 ]

@@ -71,7 +71,8 @@ def detail_movie(request, movie_id):
     movie["cast_full"] = [
         {
             "name": c["name"],
-            "photo": f"https://image.tmdb.org/t/p/w300{c['profile_path']}"
+            "photo": f"https://image.tmdb.org/t/p/w300{c['profile_path']}",
+            "id": c["id"]
             if c.get("profile_path") else None
         }
         for c in cast_list

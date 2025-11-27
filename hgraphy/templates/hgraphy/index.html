@@ -10,6 +10,103 @@
 <div class="browse">
   <h2>Horrorgraphy</h2>
   <p>HORROR FILMOGRAPHY: From visionary directors to unforgettable characters, this Horror Filmography highlights the creators, actors, and monsters that defined the genre across generations.</p>
+  <div class="filter">
+    <h3>&#128100; Select Actor, Director or Producer</h3>
+    <form method="get">
+      <div class="form-group">
+        <label for="name">Name: </label>
+        <input id="actor-input" type="text" name="name" autocomplete="off" placeholder="Insert Name" />
+        <div id="suggestions" class="suggestions-box"></div>
+      </div>
+      <input type="hidden" id="person-id" name="id">
+      <input id="submit" type="submit" value="Submit" />
+    </form>
+  </div>
+  {% if person %}
+  <div class="biography">
+    <h2>{{person.name}}</h2>
+    <div class="actor-card">
+      <img src="https://image.tmdb.org/t/p/w154{{ person.profile_path }}" alt="" />
+      <p>Name: {{ person.name }}</p>
+      <p>Born: {{ person.birthday }}</p>
+      <p>Place of birth: {{ person.place_of_birth }}</p>
+      {% if person.deathday%}
+      <p>Deathday: {{ person.deathday }}</p>
+      {% endif %}
+      <p>Gender: {{ person.gender_text }}</p>
+      <p>Occupation: {{person.known_for_department}}</p>
+      <p>Popularity: {{person.popularity|floatformat:1}}</p>
+    </div>
+    <div class="info">
+      <h4>Biography:</h4>
+      <p>{{ person.biography }}</p>
+      <h4>Horror Filmography:</h4>
+      <div class="gallery-movie">
+         {% for film in films %}
+        <div class="poster-wrapper">
+          <a href="/movie/{{film.id}}/" class="movie-link">
+          <img src="https://image.tmdb.org/t/p/w154{{ film.poster_path }}" width="60" />
+            <h6>{{ film.title }} ({{ film.release_date|slice:":4" }})</h6> 
+            <h6>as - {{ film.character }}</h6>
+            </a>
+        </div>
+        {% endfor %}
+        {% if fil.homepage %}
+        <p>Homepage : {{film.homepage}}</p>
+        {% endif %}
+        </div>
+    </div>
+  </div>
+  {% endif %}
 </div>
+
+<script>
+const input = document.getElementById("actor-input");
+const box = document.getElementById("suggestions");
+
+input.addEventListener("input", () => {
+    const q = input.value.trim();
+
+    if (q.length < 2) {
+        box.innerHTML = "";
+        box.style.display = "none";
+        return;
+    }
+
+    fetch(`/horrorgraphy/api/search-person/?query=${q}`)
+    .then(res => res.json())
+    .then(data => {
+        box.innerHTML = "";
+        box.style.display = "block";
+
+        data.results.forEach(person => {
+            const item = document.createElement("div");
+            item.classList.add("suggest-item");
+            item.innerHTML = `
+                <img src="https://image.tmdb.org/t/p/w45${person.image}">
+                <span>${person.name}</span>
+            `;
+
+            item.onclick = () => {
+                input.value = person.name;
+                document.getElementById("person-id").value = person.id; 
+                box.innerHTML = "";
+                box.style.display = "none";
+            };
+
+            box.appendChild(item);
+        });
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
 {% endblock %}
-<!-- End of Content Horrorgraphy -->
+<!-- End of Content Horrorgraphy
