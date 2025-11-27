@@ -40,7 +40,8 @@ class ActorView(TemplateView):
             def sort_by_year(list_film):
                 return sorted(
                 list_film,
-                key=lambda x: x.get("release_date", "") or "")
+                key=lambda x: x.get("release_date", "") or "",
+                reverse=True)
             
             context["as_actor"] = sort_by_year(cast_list)
             context["as_director"] = sort_by_year(as_director)

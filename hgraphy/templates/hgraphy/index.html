@@ -55,71 +55,66 @@
           </tr>
         </thead>
         <tbody>
-          {% for film in as_director %}
+          {% for film in as_actor %}
           <tr>
             <td>{{film.title}}</td>
             <td>{{ film.release_date|slice:":4" }}</td>
-            <td>{{ film.role }}</td>
+            <td>{{ film.character }}</td>
             <td><img src="https://image.tmdb.org/t/p/w154{{ film.poster_path }}" width="60" /></td>
           </tr>
           {% endfor %}
         </tbody>
-
-
-
       </table>
       {% endif %}
         <!-- End of As Actor -->
         
-        <!-- As Director -->
-        {% if as_director %}
-          <h4>As Director :</h4>
-      <div class="gallery-movie">
-         {% for film in as_director %}
-          <div class="poster-wrapper">
-          <a href="/movie/{{film.id}}/" class="movie-link">
-          <img src="https://image.tmdb.org/t/p/w154{{ film.poster_path }}" width="60" />
-            <h6>{{ film.title }} ({{ film.release_date|slice:":4" }})</h6> 
-            </a>
-          </div>
+      <!-- As Director -->
+      {% if as_director %}
+      <h4>As Director :</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Films</th>
+            <th>Year</th>
+            <th>Poster</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for film in as_director %}
+          <tr>
+            <td>{{film.title}}</td>
+            <td>{{ film.release_date|slice:":4" }}</td>
+            <td><img src="https://image.tmdb.org/t/p/w154{{ film.poster_path }}" width="60" /></td>
+          </tr>
           {% endfor %}
-          </div>
-        {% endif %}
-          <!-- End As Director -->
-
-
-         <!-- As Producer -->
-        {% if as_producer %}
-          <h4>As Producer :</h4>
-      <div class="gallery-movie">
-         {% for film in as_director %}
-          <div class="poster-wrapper">
-          <a href="/movie/{{film.id}}/" class="movie-link">
-          <img src="https://image.tmdb.org/t/p/w154{{ film.poster_path }}" width="60" />
-            <h6>{{ film.title }} ({{ film.release_date|slice:":4" }})</h6> 
-            </a>
-          </div>
+        </tbody>
+      </table>
+      {% endif %}
+       <!-- End of As Director -->
+      
+      <!-- As Producer -->
+      {% if as_producer %}
+      <h4>As Producer :</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Films</th>
+            <th>Year</th>
+            <th>Poster</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for film in as_producer %}
+          <tr>
+            <td>{{film.title}}</td>
+            <td>{{ film.release_date|slice:":4" }}</td>
+            <td><img src="https://image.tmdb.org/t/p/w154{{ film.poster_path }}" width="60" /></td>
+          </tr>
           {% endfor %}
-          </div>
-        {% endif %}
-          <!-- End As Director -->
-
-
-         <!-- As Writer -->
-        {% if as_writer %}
-          <h4>As Writer :</h4>
-      <div class="gallery-movie">
-         {% for film in as_director %}
-          <div class="poster-wrapper">
-          <a href="/movie/{{film.id}}/" class="movie-link">
-          <img src="https://image.tmdb.org/t/p/w154{{ film.poster_path }}" width="60" />
-            <h6>{{ film.title }} ({{ film.release_date|slice:":4" }})</h6> 
-            </a>
-          </div>
-          {% endfor %}
-          </div>
-        {% endif %}
-          <!-- End As Director -->
+        </tbody>
+      </table>
+      {% endif %}
+       <!-- End of As Director -->
         
     </div>
   </div>
