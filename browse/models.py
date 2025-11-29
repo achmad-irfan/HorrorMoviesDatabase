@@ -9,6 +9,7 @@ class Movie(models.Model):
     vote_average = models.FloatField(blank=True)
     language = models.CharField(max_length=10)
     popularity = models.FloatField(null=True)
+    vote_count = models.IntegerField(null=True)
 
     def __str__(self):
         return self.title

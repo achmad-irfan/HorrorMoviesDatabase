@@ -46,7 +46,8 @@ class PageMovies(ListView):
             qs = qs.filter(language=lang)
         if rating:
             try:
-                qs = qs.filter(vote_average__gte=float(rating))
+                qs = qs.filter(vote_average__gte=float(rating),
+                               vote_count__gte=100)
             except ValueError:
                 pass
         if year:
