@@ -156,9 +156,9 @@ class Analyst(TemplateView):
 
         ax5.scatter(vote_count, ratings, alpha=0.7)
         
-        z = np.polyfit(vote_count, vote_average, 1)   # cari garis linear terbaik
-        p = np.poly1d(z)
-        ax5.plot(vote_count, p(vote_count), linewidth=2)  
+        # z = np.polyfit(vote_count, vote_average, 1)   # cari garis linear terbaik
+        # p = np.poly1d(z)
+        # ax5.plot(vote_count, p(vote_count), linewidth=2)  
 
         ax5.set_title("Vote Count vs Vote Average (Top 1000 Most Votes)")
         ax5.set_xlabel("Vote Count")
