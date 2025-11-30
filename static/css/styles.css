@@ -18,7 +18,6 @@
   border-radius: 10px;
 }
 
-
 body {
   background-color: black;
   margin: 0;
@@ -31,7 +30,7 @@ body {
   width: 95%;
   display: grid;
   gap: 10px;
-  overflow: visible; /* ⬅ penting */
+  overflow: visible;
 }
 
 /* Navbar */
@@ -271,3 +270,56 @@ body {
   padding: 5px;
 }
 /* End of Footer */
+
+@media (max-width: 576px) {
+  .banner img {
+    display: none;
+  }
+
+  .content {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 15px;
+    gap: 50px;
+  }
+
+  .upcoming h4,
+  .top-movie h4 {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .movie-list {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+  }
+
+  .poster-wrapper img {
+    width: 90%;
+    height: 100px;
+    border-radius: 5px;
+    margin: 10px auto;
+  }
+
+  .poster-wrapper h6 {
+    margin-top: 8px;
+    font-size: 12px;
+    height: 19px;
+  }
+
+  .rating {
+    position: absolute;
+    top: 12px;
+    right: 30%;
+    background: rgba(0, 255, 255, 0.2);
+    color: #00eaff;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    text-shadow: 0 0 6px #00eaff, 0 0 12px #00eaff;
+    border: 1px solid #00eaff55;
+    box-shadow: 0 0 10px #00eaff88;
+  }
+}
