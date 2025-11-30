@@ -48,15 +48,30 @@ li {
 }
 
 @media (max-width: 576px) {
+  .banner {
+    padding: 10px;
+  }
   .banner h2 {
     font-size: 30px;
   }
   .analyst {
     grid-template-columns: 1fr;
+    padding: 5px;
+    margin: 5px auto;
+    border-radius: 10px;
+  }
+
+  .chart h5 {
+    font-size: 14px;
   }
 
   img {
     width: 100%;
     height: 175px;
+  }
+
+  li {
+    font-size: 12px;
+    text-align: justify;
   }
 }
