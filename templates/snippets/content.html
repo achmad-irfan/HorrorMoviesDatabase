@@ -6,7 +6,7 @@
       <a href="/movie/{{m.id}}/" class="movie-link">
         <div class="poster-wrapper">
           <img src="https://image.tmdb.org/t/p/w500{{ m.poster_path }}" alt="{{ m.title }}" width="150" />
-          <h6>{{ m.title }}</h6>
+          <h6 class="poster_name">{{ m.title }}</h6>
           <h6>Release: {{ m.release_date }}</h6>
         </div>
       </a>
@@ -21,7 +21,7 @@
         <div class="poster-wrapper">
           <img src="https://image.tmdb.org/t/p/w500{{ m.poster_path }}" alt="{{ m.title }}" width="150" />
           <span class="rating">⭐ {{ m.vote_average|floatformat:1 }}</span>
-          <h6 class="title">{{ m.title }}</h6>
+          <h6 class="title poster_name">{{ m.title }}</h6>
         </div>
       </a>
       {% endfor %}

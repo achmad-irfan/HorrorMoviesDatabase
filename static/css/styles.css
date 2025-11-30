@@ -242,6 +242,9 @@ body {
   text-align: center;
   color: #eaffff;
   transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.poster_name {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
