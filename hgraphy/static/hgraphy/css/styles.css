@@ -194,4 +194,8 @@ h4 {
     padding: 4px 5px;
     font-size: 12px;
   }
+
+  .toggle-btn {
+    font-size: 14px;
+  }
 }
