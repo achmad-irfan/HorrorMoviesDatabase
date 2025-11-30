@@ -48,7 +48,7 @@
       <!-- As Actor -->
       {% if as_actor %}
         <div class="table-item collapsed">
-          <h5>As Actor </h5>
+          <h5>As Actor </h5> 
       <table>
         <thead>
           <tr>
@@ -64,7 +64,7 @@
             <td>{{film.title}}</td>
             <td>{{ film.release_date|slice:":4" }}</td>
             <td>{{ film.character }}</td>
-            <td><a href="/movie/{{film.id}}"><img src="https://image.tmdb.org/t/p/w154{{ film.poster_path }}" width="60" /></a></td>
+            <td><a href="/movie/{{film.id}}"><img src="https://image.tmdb.org/t/p/w154{{ film.poster_path }}" width="50" /></a></td>
           </tr>
           {% endfor %}
         </tbody>
