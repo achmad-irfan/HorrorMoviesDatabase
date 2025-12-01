@@ -1,8 +1,8 @@
 from .base import *
 
-DEBUG= True
+DEBUG= False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['horror-db.achmad-irfan.my.id']
 
 DATABASES = {
     'default': {
