@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'browse',
     'hgraphy',
     'analyst',
+    'search'
+    
 ]
 
 MIDDLEWARE = [
