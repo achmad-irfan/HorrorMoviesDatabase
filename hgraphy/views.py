@@ -20,7 +20,12 @@ class ActorView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
+        context["person"] = None
+        context["as_actor"] = []
+        context["as_director"] = []
+        context["as_producer"] = []
+        context["as_writer"] = []
+        
         person_id = self.request.GET.get("id")
         name = self.request.GET.get("name")
 
