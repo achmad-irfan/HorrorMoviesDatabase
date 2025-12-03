@@ -1,8 +1,193 @@
 {% extends "base.html" %} {% load static %}
 <!-- css -->
-{% block css_app %}
-<link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-<link rel="stylesheet" href="{% static 'browse/css/styles.css' %}" />
+{% block css_app_inline %}
+<style>
+  /* Banner Browse */
+  .banner {
+    padding: 30px;
+  }
+  .banner h2,
+  .banner p {
+    text-align: center;
+    color: #00f5e1;
+    font-family: "Ethnocentric";
+  }
+  .banner h2 {
+    font-size: 50px;
+    text-shadow: 0 0 2px #00ffe0, 0 0 12px #00fff2;
+  }
+  .banner p {
+    font-size: 20px;
+    color: #00ffd9;
+  } /* End of Banner Browse */ /* Filter */
+  .filter {
+    border: 1px solid #00f5e1;
+    padding: 30px 60px;
+    color: white;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  .form-movie {
+    display: grid;
+    grid-template-areas: "name name name name" "country lang ratingmovie sort";
+    gap: 10px;
+  }
+  .name {
+    grid-area: name;
+  }
+  .country {
+    grid-area: country;
+  }
+  .lang {
+    grid-area: lang;
+  }
+  .ratingmovie {
+    grid-area: ratingmovie;
+  }
+  .sort {
+    grid-area: sort;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .form-group input,
+  #rating,
+  #sorted,
+  #year,
+  #lang {
+    width: 100%;
+    background-color: thistle;
+    border-radius: 4px;
+    padding: 7px;
+    margin-bottom: 10px;
+  }
+  #submit {
+    background-color: midnightblue;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    margin: 20px auto;
+    text-align: center;
+  } /* End of Filter */ /* Gallery Movie */
+  .gallery-movie {
+    color: white;
+    text-align: center;
+  }
+  .movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 40px;
+    margin-top: 30px;
+  }
+  .poster-wrapper {
+    box-shadow: 0 0 12px rgba(233, 3, 3, 0.333), 0 0 25px #0ff3 inset;
+  }
+  .poster-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  } /* End of Gallery Movie */ /* Paginator */
+  .gallery-movie {
+    margin: 20px auto;
+    text-align: center;
+  }
+  .page-movie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  .page-movie img {
+    border-radius: 8px;
+    transition: transform 0.3s;
+    margin-bottom: 10px;
+  }
+  .page-movie img:hover {
+    transform: scale(1.05);
+  }
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .pagination a,
+  .pagination span {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+  }
+  .pagination a:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  .pagination .current {
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+  } /* End of Paginator */
+  @media (max-width: 576px) {
+    .banner {
+      padding: 10px;
+    }
+    .banner h2 {
+      font-size: 30px;
+    }
+    .banner p {
+      display: none;
+    }
+    .filter {
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 3px;
+      font-size: 0.6em;
+      text-align: center;
+    }
+    .form-movie {
+      grid-template-areas: "name name" "country lang" "ratingmovie sort";
+      gap: 1px;
+      padding: 10px;
+    }
+    .form-group label {
+      margin-bottom: 0;
+    }
+    #submit {
+      padding: 5px;
+      border-radius: 5px;
+      margin: 10px auto;
+    }
+    .movie-list {
+      grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+      gap: 10px;
+    }
+    .gallery-movie {
+      margin: 10px auto;
+    }
+    .rating {
+      font-size: 8px;
+    } /* Paginator */
+    .page-movie {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .page-movie img {
+      border-radius: 8px;
+      transition: transform 0.3s;
+      margin-bottom: 10px;
+    }
+    .page-movie img:hover {
+      transform: scale(1.05);
+    }
+  }
+</style>
 {% endblock %}
 <!-- End of CSS  -->
 <!-- Content Browse -->

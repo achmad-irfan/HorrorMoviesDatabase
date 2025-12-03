@@ -1,8 +1,86 @@
 {% extends "base.html" %} {% load static %}
 <!-- css -->
-{% block css_app %}
-<link rel="stylesheet" href="{% static 'browse/css/styles.css' %}" />
-<link rel="stylesheet" href="{% static 'analyst/css/styles.css' %}" />
+{% block css_app_inline %}
+<style>
+  .banner {
+    padding: 30px;
+  }
+
+  .banner h3,
+  .banner p {
+    text-align: center;
+    color: #00f5e1;
+    font-family: "Ethnocentric";
+  }
+
+  .banner h2 {
+    font-size: 50px;
+    text-shadow: 0 0 2px #00ffe0, 0 0 12px #00fff2;
+  }
+
+  .banner p {
+    font-size: 20px;
+    color: #00ffd9;
+  }
+
+  .analyst h3 {
+    margin: 20px;
+  }
+
+  .analyst {
+    padding: 20px;
+    margin: 30px auto;
+    border: 1px solid white;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .analyst h5 {
+    text-align: start;
+    margin-top: 20px;
+  }
+
+  img {
+    width: 500px;
+    height: 350px;
+  }
+
+  li {
+    text-align: start;
+  }
+
+  @media (max-width: 576px) {
+    .banner {
+      padding: 10px;
+    }
+    .banner h2 {
+      font-size: 30px;
+    }
+    .analyst {
+      grid-template-columns: 1fr;
+      padding: 5px;
+      margin: 5px auto;
+      border-radius: 10px;
+    }
+
+    .chart h5 {
+      font-size: 14px;
+    }
+
+    img {
+      width: 100%;
+      height: 175px;
+    }
+
+    li {
+      font-size: 12px;
+      text-align: justify;
+    }
+  }
+</style>
+
 {% endblock %}
 <!-- End of CSS  -->
 <!-- Content Analyst -->

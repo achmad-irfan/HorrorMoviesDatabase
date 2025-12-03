@@ -1,8 +1,255 @@
 {% extends "base.html" %} {% load static %}
 <!-- css -->
-{% block css_app %}
-<link rel="stylesheet" href="{% static 'browse/css/styles.css' %}" />
-<link rel="stylesheet" href="{% static 'hgraphy/css/styles.css' %}" />
+{% block css_app_inline %}
+<style>
+  .banner {
+  padding: 30px;
+}
+
+.banner h2,
+.banner p {
+  text-align: center;
+  color: #00f5e1;
+  font-family: "Ethnocentric";
+}
+
+.banner h2 {
+  font-size: 50px;
+  text-shadow: 0 0 2px #00ffe0, 0 0 12px #00fff2;
+}
+
+.banner p {
+  font-size: 20px;
+  color: #00ffd9;
+}
+  .biography {
+  border: 1px solid #00f5e1;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+}
+.filter {
+  border: 1px solid #00f5e1;
+  padding: 30px 60px;
+  color: white;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.form-group input{
+  width: 100%;
+  background-color: thistle;
+  border-radius: 4px;
+  padding: 7px;
+  margin-bottom: 10px;
+}
+
+#submit {
+  background-color: midnightblue;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  margin: 20px auto;
+  text-align: center;
+}
+.biography p {
+  color: white;
+}
+.biography h2 {
+  color: white;
+  font-size: 30px;
+}
+.actor-card {
+  border: 1px solid white;
+  padding: 10px;
+  float: right;
+  text-align: center;
+  margin: 10px 20px;
+  border-radius: 10px;
+}
+
+.actor-card img {
+  margin-bottom: 20px;
+}
+
+.actor-card p {
+  text-align: start;
+  font-size: smaller;
+  line-height: 0.5;
+}
+
+.info p {
+  text-align: justify;
+  font-size: smaller;
+  line-height: 1.6;
+}
+
+.info h2 {
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.gallery-movie {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.poster-wrapper {
+  gap: 10px;
+}
+.poster-wrapper img {
+  height: 150px;
+  margin: 5px auto;
+}
+
+.poster-wrapper h6 {
+  font-size: 14px;
+}
+
+/* === FUTURISTIC TABLE STYLE === */
+.table-filmography {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.table-item {
+  width: 80%;
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+}
+
+.table-item.collapsed tbody tr:nth-child(n + 4) {
+  display: none; /* sembunyikan baris ke-6 dst */
+}
+
+/* Header */
+table thead th {
+  padding: 12px 16px;
+  text-align: left;
+  background: rgba(0, 255, 255, 0.15);
+  color: #00eaff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Body Rows */
+table tbody tr {
+  transition: 0.25s;
+}
+
+table tbody tr:hover {
+  background: rgba(0, 255, 255, 0.08);
+  transform: scale(1.01);
+}
+
+/* Cells */
+table td {
+  padding: 12px 16px;
+  color: #e5faff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Last row no border */
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Poster Images */
+table img {
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  transition: 0.3s;
+}
+
+table img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.6);
+}
+
+/* Section Title */
+h4 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: #00eaff;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+.toggle-btn {
+  margin-top: 12px;
+  background: #00eaff;
+  color: black;
+  border: none;
+  padding: 6px 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .filter h3 {
+    font-size: 14px;
+    text-align: start;
+  }
+
+  label[for="name"] {
+    display: none;
+  }
+
+  .biography {
+    padding: 10px;
+  }
+
+  .biography h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .actor-card {
+    float: none;
+  }
+
+  .actor-card img {
+    width: 75px;
+  }
+
+  .table-item {
+    max-width: 100%;
+  }
+
+  table tr {
+    font-size: 16px;
+  }
+
+  table td {
+    padding: 4px 5px;
+    font-size: 12px;
+  }
+
+  .toggle-btn {
+    font-size: 14px;
+  }
+}
+
+</style>
 {% endblock %}
 <!-- End of CSS  -->
 <!-- Content Horrorgraphy -->
