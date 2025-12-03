@@ -9,7 +9,7 @@ Aplikasi ini menampilkan daftar film horor, lengkap dengan informasi seperti tah
 ## 🚀 Features
 ### 🔍 **1. Landing Page**
 - Menampilkan list film horor yang akan tayang
-- 
+  
 ### 🔍 **2. Detail Movie**
 - Menampilkan informasi lebih detail dari suatu film 
 
@@ -48,6 +48,15 @@ Aplikasi ini menampilkan daftar film horor, lengkap dengan informasi seperti tah
 | Deployment | cPanel / Hosting shared Jagoan Hosting |
 | Versioning | Git + GitHub |
 | API | The Movie Database (TMDB) |
+
+
+### **🎯 Goals of the Project**
+- Melatih skill Django (views, templates, models)
+- Membuat aplikasi data sederhana berbasis film
+- Membangun portfolio yang mencerminkan kemampuan backend dan data processing
+- Menjadi pondasi untuk project yang lebih advanced (REST API, dashboard data analyst, machine learning, dll.)
+
+
 
 Silahkan cek di : www.horror.achmad-irfan.my.id
 
