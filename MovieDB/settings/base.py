@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'movies',
     'browse',
     'hgraphy',
-    'analyst',    
+    'analyst',  
+    'kisah'  ,
 ]
 
 MIDDLEWARE = [
