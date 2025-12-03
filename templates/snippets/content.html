@@ -27,33 +27,4 @@
       {% endfor %}
     </div>
   </div>
-  <!-- <div class="best-movie">
-  <div class="best">
-    <h4>Best Horror by Year</h4>
-    <h5>Filter</h5>
-    <form method="GET" action="" class="d-flex gap-2 align-items-center">
-      <select name="year" class="form-select w-auto">
-        <option value="">-- Select Year --</option>
-        {% for year in years %}
-        <option value="{{ year }}" 
-          {% if request.GET.year == year|stringformat:"s" %}selected{% endif %}>
-          {{ year }}
-        </option>
-        {% endfor %}
-      </select>
-      <button type="submit" class="btn btn-danger">Filter</button>
-    </form>
-     <div class="movie-list">
-      {% for m in best_movies %}
-      <a href="/movie/{{m.slug}}/" class="movie-link">
-        <div class="poster-wrapper">
-          <img src="https://image.tmdb.org/t/p/w500{{ m.poster_path }}" alt="{{ m.title }}" width="150" />
-          <span class="rating">{{ m.vote_average }}</span>
-        </div>
-        <p class="title">{{ m.title }}</p>
-      </a>
-      {% endfor %}
-    </div>
-  </div>
-</div> -->
 </div>
