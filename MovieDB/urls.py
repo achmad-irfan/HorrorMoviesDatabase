@@ -26,7 +26,6 @@ urlpatterns = [
     path('browse/', include('browse.urls')),
     path('horrorgraphy/', include('hgraphy.urls')),
     path('analyst', include('analyst.urls')),
-    path('search', include('search.urls'))
 ]
 
 
