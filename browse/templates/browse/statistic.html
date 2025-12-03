@@ -1,0 +1,125 @@
+{% extends "base.html" %} {% load static %}
+<!-- css -->
+{% block css_app_inline %}
+<style>
+  .banner {
+    padding: 30px;
+  }
+
+  .banner h3,
+  .banner p {
+    text-align: center;
+    color: #00f5e1;
+    font-family: "Ethnocentric";
+  }
+
+  .banner h2 {
+    font-size: 50px;
+    text-shadow: 0 0 2px #00ffe0, 0 0 12px #00fff2;
+  }
+
+  .banner p {
+    font-size: 20px;
+    color: #00ffd9;
+  }
+
+  .analyst h3 {
+    margin: 20px;
+  }
+
+  .analyst {
+    padding: 20px;
+    margin: 30px auto;
+    border: 1px solid white;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .analyst h5 {
+    text-align: start;
+    margin-top: 20px;
+  }
+
+  img {
+    width: 500px;
+    height: 350px;
+  }
+
+  li {
+    text-align: start;
+  }
+
+  @media (max-width: 576px) {
+    .banner {
+      padding: 10px;
+    }
+    .banner h2 {
+      font-size: 30px;
+    }
+    .analyst {
+      grid-template-columns: 1fr;
+      padding: 5px;
+      margin: 5px auto;
+      border-radius: 10px;
+    }
+
+    .chart h5 {
+      font-size: 14px;
+    }
+
+    img {
+      width: 100%;
+      height: 175px;
+    }
+
+    li {
+      font-size: 12px;
+      text-align: justify;
+    }
+  }
+</style>
+
+{% endblock %}
+<!-- End of CSS  -->
+<!-- Content Analyst -->
+{% block content %}
+<div class="insight">
+  <div class="banner base">
+    <h3>Data Insight of Horror Movies</h3>
+    <p>{{subtitle_stat}}</p>
+  </div>
+  <div class="analyst">
+    <div class="chart">
+      <h5>1. Movies Released Per Year</h5>
+      <img class="base" src="data:image/png;base64,{{ graph1 }}" width="500" />
+    </div>
+    <div class="chart">
+      <h5>2. Top Rated Horror Movies (Votes > 500)</h5>
+      <img class="base" src="data:image/png;base64,{{ graph2 }}" width="500" />
+    </div>
+    <div class="chart">
+      <h5>3. Indonesia Horror Movies Release per Year</h5>
+      <img class="base" src="data:image/png;base64,{{ graph3 }}" width="500" />
+    </div>
+    <div class="chart">
+      <h5>4. Popularity vs Vote Average (Top 1000 Most Popular Movies)</h5>
+      <img class="base" src="data:image/png;base64,{{ graph4 }}" width="500" />
+    </div>
+    <div class="chart">
+      <h5>5. Vote Count vs Vote Average (Top 1000 Most Popular Movies)</h5>
+      <img class="base" src="data:image/png;base64,{{ graph5 }}" width="500" />
+    </div>
+  </div>
+  <div class="conclution base">
+    <h6>Insight:</h6>
+    <ol>
+      <li>Jumlah produksi film horror baik di Indonesia maupun di dunia cenderung meningkat setiap tahun, menandakan genre horror adalah genre yang akan tetap terus diminati</li>
+      <li>Dilihat dari pola yang terbentuk, dapat disimpulkan bahwa film yang populer belum tentu memiliki skor yang bagus</li>
+      <li>Juga pola menjunjukan bahwa film-film yang memiliki banyak votes belum tentu juga memiliki skor yang bagus</li>
+    </ol>
+  </div>
+</div>
+{% endblock %}
+<!-- End of Content Analyst -->
